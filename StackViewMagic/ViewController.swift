@@ -9,17 +9,72 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var emojiView: [UIView]! {
+        didSet {
+            emojiView.forEach {
+                $0.isHidden = true
+            }
+        }
+    }
+    
+    @IBOutlet var emojiText: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func donutButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍩"
+    }
+    
+    @IBAction func fryButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍟"
+    }
+    
+    @IBAction func icecreamButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍦"
     }
 
+    @IBAction func tacoButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🌮"
+    }
+    
+    @IBAction func pizzaButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍕"
+    }
+    
+    @IBAction func cookieButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍪"
+    }
+    
+    @IBAction func popcornButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+        emojiText.text = "🍿"
+    }
+    
+    
+    
+
+    @IBAction func onSettingsButtonPressed(_ sender: AnyObject) {
+        hideButtons()
+    }
+    
+    func hideButtons() {
+        UIView.animate(withDuration: 0.3) {
+            self.emojiView.forEach {
+                $0.isHidden = !$0.isHidden
+            }
+        }
+    }
 
 }
 
